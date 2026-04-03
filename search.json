@@ -2,29 +2,22 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About me",
     "section": "",
-    "text": "About this blog"
+    "text": "Hello everyone my name is Caleb Juedes. I am currently a senior at the University of Nebraska-Lincoln. In this blog you will find projects that I have created through lessons learned in SPMC 350 to create data visualizations."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "About Me",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "text": "Hello everyone my name is Caleb Juedes. I am currently a senior at the University of Nebraska-Lincoln. In this blog you will find projects that I have created through lessons learned in SPMC 350 to create data visualizations. There will be two major projects this website will highlight. The first one being about Nebraska mens basketball Pryce Sanford and how we ranked among other great huskers and the rest of the field this year and the second project will be determined."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "calebssportsblog",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 31, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 28, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "About Me\n\n\n\nhuskers\n\nmarch\n\nbasketball\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nCaleb Juedes\n\n\n\n\n\nNo matching items"
   }
 ]

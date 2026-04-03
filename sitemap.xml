@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-website-url.example.com/about.html</loc>
-    <lastmod>2026-03-31T23:47:31.201Z</lastmod>
+    <loc>https://Calebjuedes26.github.io# you must change this appropriately for RSS feeds to work properly/about.html</loc>
+    <lastmod>2026-04-03T00:25:00.358Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/welcome/index.html</loc>
-    <lastmod>2026-03-31T23:47:31.199Z</lastmod>
+    <loc>https://Calebjuedes26.github.io# you must change this appropriately for RSS feeds to work properly/posts/index.html</loc>
+    <lastmod>2026-04-03T00:43:28.917Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/post-with-code/index.html</loc>
-    <lastmod>2026-03-31T23:47:31.200Z</lastmod>
-  </url>
-  <url>
-    <loc>https://your-website-url.example.com/index.html</loc>
+    <loc>https://Calebjuedes26.github.io# you must change this appropriately for RSS feeds to work properly/index.html</loc>
     <lastmod>2026-03-31T23:47:31.199Z</lastmod>
   </url>
 </urlset>
