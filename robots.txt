@@ -1,1 +1,1 @@
-Sitemap: https://Calebjuedes26.github.io# you must change this appropriately for RSS feeds to work properly/sitemap.xml
+Sitemap: https://calebjuedes26.github.io/sitemap.xml

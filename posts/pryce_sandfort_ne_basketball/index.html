@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About me</span></a>
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/calebjuedes"> <i class="bi bi-github" role="img">
@@ -211,131 +211,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'lubridate' was built under R version 4.3.3</code></pre>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nebraskaball<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Nebraskaball.csv"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>( MP <span class="sc">&gt;</span> <span class="dv">5</span>)<span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(G <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Pryce_sandfort <span class="ot">&lt;-</span> nebraskaball <span class="sc">|&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    Player<span class="sc">==</span> <span class="st">"Pryce Sandfort"</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS)) <span class="sc">+</span> </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort lead Nebraska in just about every offensive catergory"</span>,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, FT), <span class="at">weight=</span>FT)) <span class="sc">+</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, FT), <span class="at">weight=</span>FT), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort and how his free throws matchup against the other huskers"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nebraskaball<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Nebraskaball.csv"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>( MP <span class="sc">&gt;</span> <span class="dv">5</span>)<span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(G <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 13 Columns: 30
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (3): Player, Pos, Player-additional
+dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
+lgl  (1): Awards
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">3P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">3P</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">3P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">3P</span><span class="st">`</span>), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort and how his three pointers matchup against the other huskers"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nebraskaball)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 30
+     Rk Player Pos       G    GS    MP    FG   FGA `FG%`  `3P` `3PA` `3P%`  `2P`
+  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     1 Pryce… F        35    35  1175   217   453 0.479   129   310 0.416    88
+2     2 Rienk… F        34    34   993   169   382 0.442    50   161 0.311   119
+3     3 Brade… F        33     2   779   134   275 0.487    57   162 0.352    77
+4     4 Jamar… G        35    35   979   114   271 0.421    55   155 0.355    59
+5     5 Sam H… G        35    35  1132   124   229 0.541    32    84 0.381    92
+6     6 Berke… F        33    33   802    81   173 0.468    13    54 0.241    68
+# ℹ 17 more variables: `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, FT &lt;dbl&gt;,
+#   FTA &lt;dbl&gt;, `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;, DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;,
+#   STL &lt;dbl&gt;, BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, PTS &lt;dbl&gt;, Awards &lt;lgl&gt;,
+#   `Player-additional` &lt;chr&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">2P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">2P</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">2P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">2P</span><span class="st">`</span>), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort and how his two pointers matchup against the other huskers"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">data =</span> nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span>Player))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -345,13 +277,200 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span>Player, <span class="at">weight =</span> PTS))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Pryce_sandfort <span class="ot">&lt;-</span> nebraskaball <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    Player<span class="sc">==</span> <span class="st">"Pryce Sandfort"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS)) <span class="sc">+</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS), <span class="at">fill=</span><span class="st">"red"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, PTS), <span class="at">weight=</span>PTS), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort lead Nebraska in just about every offensive catergory"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, FT), <span class="at">weight=</span>FT)) <span class="sc">+</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, FT), <span class="at">weight=</span>FT), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort and how his free throws matchup against the other huskers"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">3P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">3P</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">3P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">3P</span><span class="st">`</span>), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort and how his three pointers matchup against the other huskers"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>nebraskaball, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">2P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">2P</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>Pryce_sandfort, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">2P</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">2P</span><span class="st">`</span>), <span class="at">fill=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort lead the charge for the Huskers on the run to the sweet 16"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Pryce Sandfort and how his two pointers matchup against the other huskers"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Caleb Juedes Source: Sports Reference"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Player"</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Pts"</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <pre><code></code></pre>
 <p>Comparing Pryce against other Huskers is great if we are just saying that Pryce was the best shooter on Nebraska team but I believe this argument is much deeper. The Big Ten Conference is one of the hardest conferences to get wins in night in and night out and the Huskers were able to capture that energy most nights. To beat good teams in the Big Ten you most play good also. Lets take a look at a few visualization that show how Pryce Sandfort stacks amongst other Big Ten foes.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'gt' was built under R version 4.3.3</code></pre>
@@ -360,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>logs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Big_ten_2026.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>logs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Big_ten_2026.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 240 Columns: 31
@@ -376,7 +495,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(logs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(logs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 31
@@ -397,37 +516,37 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>big10<span class="ot">&lt;-</span> logs<span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">3PA</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">100</span>)<span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Player,<span class="st">`</span><span class="at">2P%</span><span class="st">`</span>,<span class="st">`</span><span class="at">2PA</span><span class="st">`</span>,<span class="st">`</span><span class="at">3P%</span><span class="st">`</span>,<span class="st">`</span><span class="at">3PA</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>Player), as.numeric) <span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Player,<span class="st">`</span><span class="at">2PA</span><span class="st">`</span>,<span class="st">`</span><span class="at">2P%</span><span class="st">`</span>,<span class="st">`</span><span class="at">3PA</span><span class="st">`</span>,<span class="st">`</span><span class="at">3P%</span><span class="st">`</span>)<span class="sc">|&gt;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">3P%</span><span class="st">`</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>big10<span class="ot">&lt;-</span> logs<span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">3PA</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">100</span>)<span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Player,<span class="st">`</span><span class="at">2P%</span><span class="st">`</span>,<span class="st">`</span><span class="at">2PA</span><span class="st">`</span>,<span class="st">`</span><span class="at">3P%</span><span class="st">`</span>,<span class="st">`</span><span class="at">3PA</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>Player), as.numeric) <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Player,<span class="st">`</span><span class="at">2PA</span><span class="st">`</span>,<span class="st">`</span><span class="at">2P%</span><span class="st">`</span>,<span class="st">`</span><span class="at">3PA</span><span class="st">`</span>,<span class="st">`</span><span class="at">3P%</span><span class="st">`</span>)<span class="sc">|&gt;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">3P%</span><span class="st">`</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="txejaugklu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#txejaugklu table {
+<div id="kgyyxnnppd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kgyyxnnppd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#txejaugklu thead, #txejaugklu tbody, #txejaugklu tfoot, #txejaugklu tr, #txejaugklu td, #txejaugklu th {
+#kgyyxnnppd thead, #kgyyxnnppd tbody, #kgyyxnnppd tfoot, #kgyyxnnppd tr, #kgyyxnnppd td, #kgyyxnnppd th {
   border-style: none;
 }
 
-#txejaugklu p {
+#kgyyxnnppd p {
   margin: 0;
   padding: 0;
 }
 
-#txejaugklu .gt_table {
+#kgyyxnnppd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -453,12 +572,12 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-left-color: #D3D3D3;
 }
 
-#txejaugklu .gt_caption {
+#kgyyxnnppd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#txejaugklu .gt_title {
+#kgyyxnnppd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -470,7 +589,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-width: 0;
 }
 
-#txejaugklu .gt_subtitle {
+#kgyyxnnppd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -482,7 +601,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-width: 0;
 }
 
-#txejaugklu .gt_heading {
+#kgyyxnnppd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -494,13 +613,13 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#txejaugklu .gt_bottom_border {
+#kgyyxnnppd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#txejaugklu .gt_col_headings {
+#kgyyxnnppd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -515,7 +634,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#txejaugklu .gt_col_heading {
+#kgyyxnnppd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -535,7 +654,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#txejaugklu .gt_column_spanner_outer {
+#kgyyxnnppd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -547,15 +666,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 4px;
 }
 
-#txejaugklu .gt_column_spanner_outer:first-child {
+#kgyyxnnppd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#txejaugklu .gt_column_spanner_outer:last-child {
+#kgyyxnnppd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#txejaugklu .gt_column_spanner {
+#kgyyxnnppd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -567,11 +686,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   width: 100%;
 }
 
-#txejaugklu .gt_spanner_row {
+#kgyyxnnppd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#txejaugklu .gt_group_heading {
+#kgyyxnnppd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -597,7 +716,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   text-align: left;
 }
 
-#txejaugklu .gt_empty_group_heading {
+#kgyyxnnppd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -612,15 +731,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: middle;
 }
 
-#txejaugklu .gt_from_md > :first-child {
+#kgyyxnnppd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#txejaugklu .gt_from_md > :last-child {
+#kgyyxnnppd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#txejaugklu .gt_row {
+#kgyyxnnppd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +758,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#txejaugklu .gt_stub {
+#kgyyxnnppd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -652,7 +771,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#txejaugklu .gt_stub_row_group {
+#kgyyxnnppd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -666,15 +785,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: top;
 }
 
-#txejaugklu .gt_row_group_first td {
+#kgyyxnnppd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#txejaugklu .gt_row_group_first th {
+#kgyyxnnppd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#txejaugklu .gt_summary_row {
+#kgyyxnnppd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -684,16 +803,16 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#txejaugklu .gt_first_summary_row {
+#kgyyxnnppd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#txejaugklu .gt_first_summary_row.thick {
+#kgyyxnnppd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#txejaugklu .gt_last_summary_row {
+#kgyyxnnppd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -703,7 +822,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#txejaugklu .gt_grand_summary_row {
+#kgyyxnnppd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -713,7 +832,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#txejaugklu .gt_first_grand_summary_row {
+#kgyyxnnppd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -723,7 +842,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-color: #D3D3D3;
 }
 
-#txejaugklu .gt_last_grand_summary_row_top {
+#kgyyxnnppd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -733,11 +852,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#txejaugklu .gt_striped {
+#kgyyxnnppd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#txejaugklu .gt_table_body {
+#kgyyxnnppd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -746,7 +865,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#txejaugklu .gt_footnotes {
+#kgyyxnnppd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -760,7 +879,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#txejaugklu .gt_footnote {
+#kgyyxnnppd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -769,7 +888,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#txejaugklu .gt_sourcenotes {
+#kgyyxnnppd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +902,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#txejaugklu .gt_sourcenote {
+#kgyyxnnppd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -791,72 +910,72 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#txejaugklu .gt_left {
+#kgyyxnnppd .gt_left {
   text-align: left;
 }
 
-#txejaugklu .gt_center {
+#kgyyxnnppd .gt_center {
   text-align: center;
 }
 
-#txejaugklu .gt_right {
+#kgyyxnnppd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#txejaugklu .gt_font_normal {
+#kgyyxnnppd .gt_font_normal {
   font-weight: normal;
 }
 
-#txejaugklu .gt_font_bold {
+#kgyyxnnppd .gt_font_bold {
   font-weight: bold;
 }
 
-#txejaugklu .gt_font_italic {
+#kgyyxnnppd .gt_font_italic {
   font-style: italic;
 }
 
-#txejaugklu .gt_super {
+#kgyyxnnppd .gt_super {
   font-size: 65%;
 }
 
-#txejaugklu .gt_footnote_marks {
+#kgyyxnnppd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#txejaugklu .gt_asterisk {
+#kgyyxnnppd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#txejaugklu .gt_indent_1 {
+#kgyyxnnppd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#txejaugklu .gt_indent_2 {
+#kgyyxnnppd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#txejaugklu .gt_indent_3 {
+#kgyyxnnppd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#txejaugklu .gt_indent_4 {
+#kgyyxnnppd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#txejaugklu .gt_indent_5 {
+#kgyyxnnppd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#txejaugklu .katex-display {
+#kgyyxnnppd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#txejaugklu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kgyyxnnppd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1301,33 +1420,33 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()<span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shot attempts"</span>,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shooting percentage"</span>,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shot attempts"</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shooting percentage"</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()<span class="sc">|&gt;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shot attempts"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shooting percentage"</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shot attempts"</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shooting percentage"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="jgmqhuccjy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jgmqhuccjy table {
+<div id="opqzgflcsp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#opqzgflcsp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jgmqhuccjy thead, #jgmqhuccjy tbody, #jgmqhuccjy tfoot, #jgmqhuccjy tr, #jgmqhuccjy td, #jgmqhuccjy th {
+#opqzgflcsp thead, #opqzgflcsp tbody, #opqzgflcsp tfoot, #opqzgflcsp tr, #opqzgflcsp td, #opqzgflcsp th {
   border-style: none;
 }
 
-#jgmqhuccjy p {
+#opqzgflcsp p {
   margin: 0;
   padding: 0;
 }
 
-#jgmqhuccjy .gt_table {
+#opqzgflcsp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1353,12 +1472,12 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-left-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_caption {
+#opqzgflcsp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jgmqhuccjy .gt_title {
+#opqzgflcsp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1370,7 +1489,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-width: 0;
 }
 
-#jgmqhuccjy .gt_subtitle {
+#opqzgflcsp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1382,7 +1501,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-width: 0;
 }
 
-#jgmqhuccjy .gt_heading {
+#opqzgflcsp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1394,13 +1513,13 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_bottom_border {
+#opqzgflcsp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_col_headings {
+#opqzgflcsp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1415,7 +1534,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_col_heading {
+#opqzgflcsp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1435,7 +1554,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#jgmqhuccjy .gt_column_spanner_outer {
+#opqzgflcsp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1447,15 +1566,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 4px;
 }
 
-#jgmqhuccjy .gt_column_spanner_outer:first-child {
+#opqzgflcsp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jgmqhuccjy .gt_column_spanner_outer:last-child {
+#opqzgflcsp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jgmqhuccjy .gt_column_spanner {
+#opqzgflcsp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1467,11 +1586,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   width: 100%;
 }
 
-#jgmqhuccjy .gt_spanner_row {
+#opqzgflcsp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jgmqhuccjy .gt_group_heading {
+#opqzgflcsp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1497,7 +1616,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   text-align: left;
 }
 
-#jgmqhuccjy .gt_empty_group_heading {
+#opqzgflcsp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1512,15 +1631,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: middle;
 }
 
-#jgmqhuccjy .gt_from_md > :first-child {
+#opqzgflcsp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jgmqhuccjy .gt_from_md > :last-child {
+#opqzgflcsp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jgmqhuccjy .gt_row {
+#opqzgflcsp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1539,7 +1658,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#jgmqhuccjy .gt_stub {
+#opqzgflcsp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1552,7 +1671,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#jgmqhuccjy .gt_stub_row_group {
+#opqzgflcsp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1566,15 +1685,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: top;
 }
 
-#jgmqhuccjy .gt_row_group_first td {
+#opqzgflcsp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jgmqhuccjy .gt_row_group_first th {
+#opqzgflcsp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jgmqhuccjy .gt_summary_row {
+#opqzgflcsp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1584,16 +1703,16 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#jgmqhuccjy .gt_first_summary_row {
+#opqzgflcsp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_first_summary_row.thick {
+#opqzgflcsp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jgmqhuccjy .gt_last_summary_row {
+#opqzgflcsp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1603,7 +1722,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_grand_summary_row {
+#opqzgflcsp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1613,7 +1732,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#jgmqhuccjy .gt_first_grand_summary_row {
+#opqzgflcsp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1623,7 +1742,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_last_grand_summary_row_top {
+#opqzgflcsp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1633,11 +1752,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_striped {
+#opqzgflcsp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jgmqhuccjy .gt_table_body {
+#opqzgflcsp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1646,7 +1765,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_footnotes {
+#opqzgflcsp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1660,7 +1779,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_footnote {
+#opqzgflcsp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1669,7 +1788,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#jgmqhuccjy .gt_sourcenotes {
+#opqzgflcsp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1683,7 +1802,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#jgmqhuccjy .gt_sourcenote {
+#opqzgflcsp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1691,72 +1810,72 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#jgmqhuccjy .gt_left {
+#opqzgflcsp .gt_left {
   text-align: left;
 }
 
-#jgmqhuccjy .gt_center {
+#opqzgflcsp .gt_center {
   text-align: center;
 }
 
-#jgmqhuccjy .gt_right {
+#opqzgflcsp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jgmqhuccjy .gt_font_normal {
+#opqzgflcsp .gt_font_normal {
   font-weight: normal;
 }
 
-#jgmqhuccjy .gt_font_bold {
+#opqzgflcsp .gt_font_bold {
   font-weight: bold;
 }
 
-#jgmqhuccjy .gt_font_italic {
+#opqzgflcsp .gt_font_italic {
   font-style: italic;
 }
 
-#jgmqhuccjy .gt_super {
+#opqzgflcsp .gt_super {
   font-size: 65%;
 }
 
-#jgmqhuccjy .gt_footnote_marks {
+#opqzgflcsp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jgmqhuccjy .gt_asterisk {
+#opqzgflcsp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jgmqhuccjy .gt_indent_1 {
+#opqzgflcsp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jgmqhuccjy .gt_indent_2 {
+#opqzgflcsp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jgmqhuccjy .gt_indent_3 {
+#opqzgflcsp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jgmqhuccjy .gt_indent_4 {
+#opqzgflcsp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jgmqhuccjy .gt_indent_5 {
+#opqzgflcsp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jgmqhuccjy .katex-display {
+#opqzgflcsp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jgmqhuccjy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#opqzgflcsp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2201,37 +2320,37 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()<span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shot attempts"</span>,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shooting percentage"</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shot attempts"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shooting percentage"</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort is shooting the three at a very high rate this season"</span>,</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span> <span class="st">"Pryce Sandfort is in the top shooters in the big ten percentage based off this three point percantage and attempts this year"</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()<span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shot attempts"</span>,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shooting percentage"</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shot attempts"</span>,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shooting percentage"</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort is shooting the three at a very high rate this season"</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span> <span class="st">"Pryce Sandfort is in the top shooters in the big ten percentage based off this three point percantage and attempts this year"</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="yzjpzdprii" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yzjpzdprii table {
+<div id="syezmzyijw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#syezmzyijw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yzjpzdprii thead, #yzjpzdprii tbody, #yzjpzdprii tfoot, #yzjpzdprii tr, #yzjpzdprii td, #yzjpzdprii th {
+#syezmzyijw thead, #syezmzyijw tbody, #syezmzyijw tfoot, #syezmzyijw tr, #syezmzyijw td, #syezmzyijw th {
   border-style: none;
 }
 
-#yzjpzdprii p {
+#syezmzyijw p {
   margin: 0;
   padding: 0;
 }
 
-#yzjpzdprii .gt_table {
+#syezmzyijw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2257,12 +2376,12 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-left-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_caption {
+#syezmzyijw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yzjpzdprii .gt_title {
+#syezmzyijw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2274,7 +2393,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-width: 0;
 }
 
-#yzjpzdprii .gt_subtitle {
+#syezmzyijw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2286,7 +2405,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-width: 0;
 }
 
-#yzjpzdprii .gt_heading {
+#syezmzyijw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2298,13 +2417,13 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_bottom_border {
+#syezmzyijw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_col_headings {
+#syezmzyijw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2319,7 +2438,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_col_heading {
+#syezmzyijw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2339,7 +2458,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#yzjpzdprii .gt_column_spanner_outer {
+#syezmzyijw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2351,15 +2470,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 4px;
 }
 
-#yzjpzdprii .gt_column_spanner_outer:first-child {
+#syezmzyijw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yzjpzdprii .gt_column_spanner_outer:last-child {
+#syezmzyijw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yzjpzdprii .gt_column_spanner {
+#syezmzyijw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2371,11 +2490,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   width: 100%;
 }
 
-#yzjpzdprii .gt_spanner_row {
+#syezmzyijw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yzjpzdprii .gt_group_heading {
+#syezmzyijw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2401,7 +2520,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   text-align: left;
 }
 
-#yzjpzdprii .gt_empty_group_heading {
+#syezmzyijw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2416,15 +2535,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: middle;
 }
 
-#yzjpzdprii .gt_from_md > :first-child {
+#syezmzyijw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yzjpzdprii .gt_from_md > :last-child {
+#syezmzyijw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yzjpzdprii .gt_row {
+#syezmzyijw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2443,7 +2562,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#yzjpzdprii .gt_stub {
+#syezmzyijw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2456,7 +2575,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#yzjpzdprii .gt_stub_row_group {
+#syezmzyijw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2470,15 +2589,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: top;
 }
 
-#yzjpzdprii .gt_row_group_first td {
+#syezmzyijw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yzjpzdprii .gt_row_group_first th {
+#syezmzyijw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yzjpzdprii .gt_summary_row {
+#syezmzyijw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2488,16 +2607,16 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#yzjpzdprii .gt_first_summary_row {
+#syezmzyijw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_first_summary_row.thick {
+#syezmzyijw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yzjpzdprii .gt_last_summary_row {
+#syezmzyijw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2507,7 +2626,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_grand_summary_row {
+#syezmzyijw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2517,7 +2636,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#yzjpzdprii .gt_first_grand_summary_row {
+#syezmzyijw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2527,7 +2646,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_last_grand_summary_row_top {
+#syezmzyijw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2537,11 +2656,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_striped {
+#syezmzyijw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yzjpzdprii .gt_table_body {
+#syezmzyijw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2550,7 +2669,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_footnotes {
+#syezmzyijw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2564,7 +2683,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_footnote {
+#syezmzyijw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2573,7 +2692,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#yzjpzdprii .gt_sourcenotes {
+#syezmzyijw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2587,7 +2706,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#yzjpzdprii .gt_sourcenote {
+#syezmzyijw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2595,72 +2714,72 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#yzjpzdprii .gt_left {
+#syezmzyijw .gt_left {
   text-align: left;
 }
 
-#yzjpzdprii .gt_center {
+#syezmzyijw .gt_center {
   text-align: center;
 }
 
-#yzjpzdprii .gt_right {
+#syezmzyijw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yzjpzdprii .gt_font_normal {
+#syezmzyijw .gt_font_normal {
   font-weight: normal;
 }
 
-#yzjpzdprii .gt_font_bold {
+#syezmzyijw .gt_font_bold {
   font-weight: bold;
 }
 
-#yzjpzdprii .gt_font_italic {
+#syezmzyijw .gt_font_italic {
   font-style: italic;
 }
 
-#yzjpzdprii .gt_super {
+#syezmzyijw .gt_super {
   font-size: 65%;
 }
 
-#yzjpzdprii .gt_footnote_marks {
+#syezmzyijw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yzjpzdprii .gt_asterisk {
+#syezmzyijw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yzjpzdprii .gt_indent_1 {
+#syezmzyijw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yzjpzdprii .gt_indent_2 {
+#syezmzyijw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yzjpzdprii .gt_indent_3 {
+#syezmzyijw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yzjpzdprii .gt_indent_4 {
+#syezmzyijw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yzjpzdprii .gt_indent_5 {
+#syezmzyijw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yzjpzdprii .katex-display {
+#syezmzyijw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yzjpzdprii div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#syezmzyijw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3111,43 +3230,43 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()<span class="sc">|&gt;</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shot attempts"</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shooting percentage"</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shot attempts"</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shooting percentage"</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort is shooting the three at a very high rate this season"</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span> <span class="st">"Pryce Sandfort is in the top shooters in the big ten percentage based off this three point percantage and attempts this year."</span> </span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>big10 <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()<span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shot attempts"</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">2P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"2 point shooting percentage"</span>,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3PA</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shot attempts"</span>,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">3P%</span><span class="st">`</span><span class="ot">=</span> <span class="st">"3 point shooting percentage"</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Pryce Sandfort is shooting the three at a very high rate this season"</span>,</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span> <span class="st">"Pryce Sandfort is in the top shooters in the big ten percentage based off this three point percantage and attempts this year."</span> </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="pngkmnaofo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pngkmnaofo table {
+<div id="suejrwugsp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#suejrwugsp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pngkmnaofo thead, #pngkmnaofo tbody, #pngkmnaofo tfoot, #pngkmnaofo tr, #pngkmnaofo td, #pngkmnaofo th {
+#suejrwugsp thead, #suejrwugsp tbody, #suejrwugsp tfoot, #suejrwugsp tr, #suejrwugsp td, #suejrwugsp th {
   border-style: none;
 }
 
-#pngkmnaofo p {
+#suejrwugsp p {
   margin: 0;
   padding: 0;
 }
 
-#pngkmnaofo .gt_table {
+#suejrwugsp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3173,12 +3292,12 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-left-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_caption {
+#suejrwugsp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pngkmnaofo .gt_title {
+#suejrwugsp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3190,7 +3309,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-width: 0;
 }
 
-#pngkmnaofo .gt_subtitle {
+#suejrwugsp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3202,7 +3321,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-width: 0;
 }
 
-#pngkmnaofo .gt_heading {
+#suejrwugsp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3214,13 +3333,13 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_bottom_border {
+#suejrwugsp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_col_headings {
+#suejrwugsp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3235,7 +3354,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_col_heading {
+#suejrwugsp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3255,7 +3374,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#pngkmnaofo .gt_column_spanner_outer {
+#suejrwugsp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3267,15 +3386,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 4px;
 }
 
-#pngkmnaofo .gt_column_spanner_outer:first-child {
+#suejrwugsp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pngkmnaofo .gt_column_spanner_outer:last-child {
+#suejrwugsp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pngkmnaofo .gt_column_spanner {
+#suejrwugsp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3287,11 +3406,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   width: 100%;
 }
 
-#pngkmnaofo .gt_spanner_row {
+#suejrwugsp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pngkmnaofo .gt_group_heading {
+#suejrwugsp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3317,7 +3436,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   text-align: left;
 }
 
-#pngkmnaofo .gt_empty_group_heading {
+#suejrwugsp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3332,15 +3451,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: middle;
 }
 
-#pngkmnaofo .gt_from_md > :first-child {
+#suejrwugsp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pngkmnaofo .gt_from_md > :last-child {
+#suejrwugsp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pngkmnaofo .gt_row {
+#suejrwugsp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3359,7 +3478,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   overflow-x: hidden;
 }
 
-#pngkmnaofo .gt_stub {
+#suejrwugsp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3372,7 +3491,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#pngkmnaofo .gt_stub_row_group {
+#suejrwugsp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3386,15 +3505,15 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   vertical-align: top;
 }
 
-#pngkmnaofo .gt_row_group_first td {
+#suejrwugsp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pngkmnaofo .gt_row_group_first th {
+#suejrwugsp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pngkmnaofo .gt_summary_row {
+#suejrwugsp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3404,16 +3523,16 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#pngkmnaofo .gt_first_summary_row {
+#suejrwugsp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_first_summary_row.thick {
+#suejrwugsp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pngkmnaofo .gt_last_summary_row {
+#suejrwugsp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3423,7 +3542,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_grand_summary_row {
+#suejrwugsp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3433,7 +3552,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#pngkmnaofo .gt_first_grand_summary_row {
+#suejrwugsp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3443,7 +3562,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-top-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_last_grand_summary_row_top {
+#suejrwugsp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3453,11 +3572,11 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_striped {
+#suejrwugsp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pngkmnaofo .gt_table_body {
+#suejrwugsp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3466,7 +3585,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-bottom-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_footnotes {
+#suejrwugsp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3480,7 +3599,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_footnote {
+#suejrwugsp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3489,7 +3608,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#pngkmnaofo .gt_sourcenotes {
+#suejrwugsp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3503,7 +3622,7 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   border-right-color: #D3D3D3;
 }
 
-#pngkmnaofo .gt_sourcenote {
+#suejrwugsp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3511,72 +3630,72 @@ dbl (26): Rk, G, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, 2PA, 2P%, eFG%, FT,...
   padding-right: 5px;
 }
 
-#pngkmnaofo .gt_left {
+#suejrwugsp .gt_left {
   text-align: left;
 }
 
-#pngkmnaofo .gt_center {
+#suejrwugsp .gt_center {
   text-align: center;
 }
 
-#pngkmnaofo .gt_right {
+#suejrwugsp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pngkmnaofo .gt_font_normal {
+#suejrwugsp .gt_font_normal {
   font-weight: normal;
 }
 
-#pngkmnaofo .gt_font_bold {
+#suejrwugsp .gt_font_bold {
   font-weight: bold;
 }
 
-#pngkmnaofo .gt_font_italic {
+#suejrwugsp .gt_font_italic {
   font-style: italic;
 }
 
-#pngkmnaofo .gt_super {
+#suejrwugsp .gt_super {
   font-size: 65%;
 }
 
-#pngkmnaofo .gt_footnote_marks {
+#suejrwugsp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pngkmnaofo .gt_asterisk {
+#suejrwugsp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pngkmnaofo .gt_indent_1 {
+#suejrwugsp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pngkmnaofo .gt_indent_2 {
+#suejrwugsp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pngkmnaofo .gt_indent_3 {
+#suejrwugsp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pngkmnaofo .gt_indent_4 {
+#suejrwugsp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pngkmnaofo .gt_indent_5 {
+#suejrwugsp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pngkmnaofo .katex-display {
+#suejrwugsp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pngkmnaofo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#suejrwugsp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
