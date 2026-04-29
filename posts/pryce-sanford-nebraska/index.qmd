@@ -226,4 +226,4 @@ ggplot()+
     panel.grid.minor = element_blank()
   )
 ```
-As we can see from this chart, Pryce Sandfort is shooting above the mean in the Big Ten and above the mean for the for Husker Men's team. With the data we have gathered and the visualization we have looked at, we can see that Pryce Sandfort's impact on Nebraska basketball and their chances at winning go hand in hand. The better Sandfort does, the better the team is going to fair. 
+As we can see from this chart, Pryce Sandfort is shooting above the mean in the Big Ten and above the mean for the for Husker Men's team. With the data we have gathered and the visualization we have looked at, we can see that Pryce Sandfort's impact on Nebraska basketball and their chances at winning go hand in hand. The better Sandfort does, the better the team is going to fair.
