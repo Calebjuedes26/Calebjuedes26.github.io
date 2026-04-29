@@ -1,0 +1,229 @@
+---
+title: "Pryce Sandfort was the best shooter in the Big ten"
+author: "Caleb Juedes"
+date: '2026-04-10'
+categories: [huskers, basketball, shooters]
+image: "pryce Medium.png"
+format: 
+  html:
+    code-fold: true
+---
+
+This year for Nebraska men basketball fans was a year to remember. Coming into the year fans were optimistic as always but this year was different. The Huskers were projected towards the bottom half of the Big Ten coming into the year.
+
+The Nebraska Cornhuskers were looking to build off the momentum the team had captured at the end of the previous season. Nebraska would be led by incoming transfers of likes such as Jamarques Lawerence returning back home and newcomer Pryce Sandfort.
+
+Anyone watching the Nebraska men's season saw a completely different team. Pryce Sandfort lead the Cornhuskers to a historic year and made the school's first ever NCAA Sweet 16 appearance. It is not a crazy statement to say that Pryce Sandfort was one of the most valuable players in college basketball this season.
+
+We are going to look at some data and have some visuals to back up the argument. The data we will be looking at will all have came from the same place. Sports Reference college basketball is the site I used. Sports Reference had multiple fields to choose from. Throughout this blog post I will be looking at Sandfort against his college teammates and then look at a bigger picture such as how he faired compared to the rest of the Big Ten.
+
+The first visualization we will look at is going to be some bar charts comparing to Pryce Sandfort stats to the rest of the Nebraska Cornhuskers. You can look at any field you are wanting to look at but for this post since I am telling people he is the best shooter in college basketball, I will need to look at shooting metrics to see these results. Looking at the charts you can tell that Pryce Sandfort lead the team in almost all of the offensive categories. According to the charts, we can see that Pryce has a sizable lead on the next closest Husker.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(cowplot)
+
+nebraskaball<- read_csv("Nebraskaball.csv")|>
+filter( MP > 5)|>
+filter(G > 10)
+
+
+Pryce_sandfort <- nebraskaball |>
+  filter(
+    Player== "Pryce Sandfort"
+  )
+
+bar1<- ggplot() + 
+  geom_bar(data=nebraskaball, aes(x=reorder(Player, PTS), weight=PTS)) + 
+  geom_bar(data=Pryce_sandfort, aes(x=reorder(Player, PTS), weight=PTS), fill="red")+
+  coord_flip()+
+labs(
+    title = "Pryce Sandfort leads the way to the sweet 16",
+    subtitle = "Pryce Sandfort lead Nebraska in just about every offensive catergory",
+    caption = "Caleb Juedes Source: Sports Reference",
+    x = "Player",
+    y = "Points"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 8),
+    plot.subtitle = element_text(size = 8),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot")
+bar2<- ggplot() + 
+  geom_bar(data=nebraskaball, aes(x=reorder(Player, FT), weight=FT)) + 
+  geom_bar(data=Pryce_sandfort, aes(x=reorder(Player, FT), weight=FT), fill="red")+
+  coord_flip()+ 
+  labs(
+    title = "",
+    subtitle = "",
+    caption = "Caleb Juedes Source: Sports Reference",
+    x = "Player",
+    y = "Free throws"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 8),
+    plot.subtitle = element_text(size = 8),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot"
+  ) 
+bar3<-ggplot() + 
+  geom_bar(data=nebraskaball, aes(x=reorder(Player, `3P`), weight=`3P`)) + 
+  geom_bar(data=Pryce_sandfort, aes(x=reorder(Player, `3P`), weight=`3P`), fill="red")+
+  coord_flip() +
+  labs(
+    title = "",
+    subtitle = "",
+    caption = "Caleb Juedes Source: Sports Reference",
+    x = "Player",
+    y = "Three pointers"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 8),
+    plot.subtitle = element_text(size = 8),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot"
+  ) 
+bar4<-ggplot() + 
+  geom_bar(data=nebraskaball, aes(x=reorder(Player, `2P`), weight=`2P`)) + 
+  geom_bar(data=Pryce_sandfort, aes(x=reorder(Player, `2P`), weight=`2P`), fill="red")+
+  coord_flip()+
+  labs(
+    title = "",
+    subtitle = "",
+    caption = "Caleb Juedes Source: Sports Reference",
+    x = "Player",
+    y = "Two pointers"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 8),
+    plot.subtitle = element_text(size = 8),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot"
+  )
+  plot_grid (bar1, bar2, bar3, bar4)
+```
+
+Looking at the data, we can see that Pryce ranks first on the team in three pointers made, freethrows, and points scored on the year. This is very impressive and shows how important Pryce was for the Huskers on their first ever run to the Sweet Sixteen.
+
+Comparing Pryce against other Huskers is great if we are just saying that Pryce was the best shooter on the Nebraska team, but I believe this argument is much deeper. The Big Ten Conference is one of the hardest conferences to get wins in night in and night out, and the Huskers were able to capture that energy most nights. To beat good teams in the Big Ten, you must play good also. Lets take a look at a few visualization that show how Pryce Sandfort stacks among other Big Ten foes.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(gt)
+
+logs <- read_csv("Big_ten_2026.csv")
+
+big10<- logs|>
+  filter(`3PA` > 175)|>
+  select(Player,`2P%`,`2PA`,`3P%`,`3PA`) |>
+  mutate_at(vars(-Player), as.numeric) |>
+  select(Player,`2PA`,`2P%`,`3PA`,`3P%`)|>
+  arrange(desc(`3P%`))
+
+big10 |>
+  gt()|>
+  cols_label(
+    `2PA`= "2 point shot attempts",
+    `2P%`= "2 point shooting percentage",
+    `3PA`= "3 point shot attempts",
+    `3P%`= "3 point shooting percentage"
+  )|>
+  tab_header(
+    title = "Pryce Sandfort is shooting the three at a very high rate this season",
+    subtitle= "Pryce Sandfort is in the top shooters in the Big Ten percentage based off this three point percantage and attempts this year." 
+  )|>
+  tab_style(
+    style = cell_text(color = "black", weight = "bold", align = "left"),
+    locations = cells_title("title")
+  ) |> tab_style(
+    style = cell_text(color = "black", align = "left"),
+    locations = cells_title("subtitle")) |>
+  tab_source_note(
+    source_note = md("**By:** Caleb Juedes  |  **Source:** Sports Reference: Basketball data set for R Package for Men's Basketball Data")
+    ) |>
+  tab_style(
+    locations = cells_column_labels(columns = everything()),
+    style = list(
+      cell_borders(sides = "bottom", weight = px(3)),
+      cell_text(weight = "bold", size = 12)
+    )
+  )|>
+  tab_style(
+    locations = cells_column_labels(columns = everything()),
+    style = list(
+      cell_borders(sides = "bottom", weight = px(3)),
+      cell_text(weight = "bold", size = 12)
+    )
+  ) |>
+  opt_row_striping() |>
+  opt_table_lines("none") |>
+fmt_number(
+    columns = c(`3P%`),
+    decimals = 3
+  ) |>
+  tab_style(
+    style = list(
+      cell_fill(color = "red"),
+      cell_text(color = "white")
+    ),
+    locations = cells_body(columns = `3P%`)
+  )
+
+```
+
+Looking at this chart, we can see that Pryce Sandfort is making the three at an insane rate. In the red column is what I want to draw your attention to. We can see that even at the top of Nebraska scouting report, Pryce is still second overall in the conference for three point percentage. What is even more surprising to me is that Pryce is doing this all while attempting over 300 threes on the season. The motto of "live by the three and die by the three" can be used here. This also can be a credit to Sandfort as he is doing this with a 41% shooting percentage. Nebraska will certainly take that production from their player.
+
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+library(ggrepel)
+
+Big_ten<- read_csv("Big_ten_2026.csv")
+
+newbig<- Big_ten |>
+  filter(
+    `3PA` > 50 &
+    `3P%` > .25
+  ) 
+ggplot()+
+  geom_point(data=newbig, aes(x=`3P`, y=`3PA`)) +
+  geom_point(
+    data = subset(newbig, Player == "Pryce Sandfort"),
+    aes(x=`3P`, y=`3PA`), color="red", size=3
+  )+
+  geom_text(
+    data = subset(newbig, Player == "Pryce Sandfort"),
+    aes(x=`3P`, y=`3PA`, label = "Pryce Sandfort"),
+    vjust = -1,
+    size = 3
+  )+
+  geom_smooth(data = newbig, aes(x=`3P`, y=`3PA`), method = "lm", color="blue")+
+  theme_minimal() +
+  labs(
+    y = "Three Point Percentage",
+    title = "Pryce Sandfort is one of the best shooters in the Big Ten",
+    subtitle = "Pryce is shooting threes at an impressive rate, leading the Cornhuskers",
+    caption = "Source: Sports Reference | By Caleb Juedes"
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    plot.subtitle = element_text(size = 10),
+    axis.title = element_text(size = 8),
+    panel.grid.minor = element_blank()
+  )
+```
+As we can see from this chart, Pryce Sandfort is shooting above the mean in the Big Ten and above the mean for the for Husker Men's team. With the data we have gathered and the visualization we have looked at, we can see that Pryce Sandfort's impact on Nebraska basketball and their chances at winning go hand in hand. The better Sandfort does, the better the team is going to fair. 
